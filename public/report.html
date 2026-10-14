@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day to Day Expenses Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+            color: #00838f;
+            margin-bottom: 5px;
+        }
+        .timestamp {
+            text-align: left;
+            font-size: 12px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+        .year-title {
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+        }
+        .month-title {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #b2dfdb;
+            padding: 6px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #00838f;
+            color: white;
+            text-align: center;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .subtotal-row {
+            background-color: #e0f2f1;
+            font-weight: bold;
+        }
+        .total-row {
+            background-color: #b2dfdb;
+            font-weight: bold;
+        }
+        .savings-row {
+            text-align: right;
+            font-weight: bold;
+            color: #00796b;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .section-header {
+            background-color: #00838f;
+            color: white;
+            padding: 6px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .download-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #00838f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .download-fab.disabled {
+            background-color: #b0bec5;
+            cursor: not-allowed;
+            pointer-events: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Day to Day Expenses</h2>
+        <div class="timestamp">16 March 2021, 01:16 PM</div>
+
+        <div class="year-title">2021</div>
+        <div class="month-title">March 2021</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th class="text-right">Income</th>
+                    <th class="text-right">Expense</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table-body">
+            </tbody>
+        </table>
+
+        <div class="savings-row" id="savings-display">Savings = ₹ 54,330.00</div>
+
+        <div class="section-header">Yearly Report</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th class="text-right">Income</th>
+                    <th class="text-right">Expense</th>
+                    <th class="text-right">Savings</th>
+                </tr>
+            </thead>
+            <tbody id="yearly-table-body">
+            </tbody>
+        </table>
+
+        <div class="section-header">Notes Report 2021</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="notes-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <a href="#" id="download-btn" class="download-fab" title="Download Report">
+        ↓
+    </a>
+
+    <script src="/js/report.js"></script>
+</body>
+</html>
